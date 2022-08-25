@@ -25,7 +25,8 @@ cat core-self_phast.csv | cut -d ',' -f2-3 > core-self_phast_cut.csv
 
 #add gubbins_cut.bed to core-self_phast.bed file
 cat core-self_phast_cut.csv gubbins_cut.csv > gubbins_fullmask.csv
-paste -d ',' core-self_block.csv gubbins_fullmask.csv > gubbins_fullmask_complete.csv
+awk '!/^$/' gubbins_fullmask.csv > gubbins_fullmask_ok.csv
+paste -d ',' core-self_block.csv gubbins_fullmask_ok.csv > gubbins_fullmask_complete.csv
 
 #add correct accession number of reference (eg. CP010781) 
 sed -E 's/(^|,)(,|$)/\1CP010781\2/g; s/(^|,)(,|$)/\1CP010781\2/g' gubbins_fullmask_complete.csv > gubbins_fullmask_completed.csv
