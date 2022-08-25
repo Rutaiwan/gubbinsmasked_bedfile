@@ -37,6 +37,7 @@ sed 's/\,/\t/g' gubbins_fullmask_completed.csv > gubbins_fullmask_completed.tab
 awk 'BEGIN {OFS="\t"} {print $1, $2-1, $3}' gubbins_fullmask_completed.tab > gubbins_fullmask_completed.bed
 
 #remove all uncessory files
+rm -r gubbins_fullmask.csv
 rm -r core-self_block.csv
 rm -r core-self_phast.csv
 rm -r core-self_phast_cut.csv
